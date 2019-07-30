@@ -324,6 +324,42 @@
             // setting up opacity back to full
             .style("opacity", "1");
 
+		// ************ add a button to link to 2010 page
+        var holder = g.append("g")
+            .attr("font-family", "time")
+            .attr("font-size", 16)
+            .attr("text-anchor", "start")
+            .selectAll("g")
+            .data(keys.slice())
+            .enter()
+            .append("g")
+            //.attr("transform", function(d, i) {
+            //    return "translate(0," + i * 20 + ")";
+            //})
+			.attr("transform", "translate(0, 0)")
+            // setting up opacity to 0 before transition
+            .style("opacity", "0");
+ 
+		
+        // setting up leend text   
+        holder.append("a")
+			.attr("xlink:href", "https://leonphw25.github.io/index.html")
+			.append("text")
+            .attr("x", 400) //width - 265)
+            .attr("y", -10)
+            .attr("dy", "0.32em")
+			.style('fill', 'blue')
+            .text( "[Click here to jump out comparison view]");		
+			
+		// setting transition delay and duration for all individual elements for the legend    
+        holder.transition()
+            .duration(500)
+            .delay(1300)
+            // setting up opacity back to full
+            .style("opacity", "1");
+
+
+
     });
 
   
