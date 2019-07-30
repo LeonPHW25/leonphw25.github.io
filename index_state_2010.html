@@ -17,7 +17,7 @@
 
   .gtitle {
       background: white;
-      height: 100px;
+      height: 40px;
       overflow: hidden;
       position: relative;
       width: 100%;
@@ -324,6 +324,42 @@
             })
             // setting up opacity back to full
             .style("opacity", "1");
+			
+		// ************ add a button to link to 2010 page
+        var holder = g.append("g")
+            .attr("font-family", "time")
+            .attr("font-size", 16)
+            .attr("text-anchor", "start")
+            .selectAll("g")
+            .data(keys.slice())
+            .enter()
+            .append("g")
+            //.attr("transform", function(d, i) {
+            //    return "translate(0," + i * 20 + ")";
+            //})
+			.attr("transform", "translate(0, 0)")
+            // setting up opacity to 0 before transition
+            .style("opacity", "0");
+ 
+		
+        // setting up leend text   
+        holder.append("a")
+			.attr("xlink:href", "https://leonphw25.github.io/index_state_2011.html")
+			.append("text")
+            .attr("x", 650) //width - 265)
+            .attr("y", -10)
+            .attr("dy", "0.32em")
+			.style('fill', 'red')
+            .text( "[Click here to see Each State's Profit in 2011]");		
+			
+		// setting transition delay and duration for all individual elements for the legend    
+        holder.transition()
+            .duration(500)
+            .delay(1300)
+            // setting up opacity back to full
+            .style("opacity", "1");
+						
+						
 
     });
 
