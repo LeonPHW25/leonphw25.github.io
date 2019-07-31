@@ -402,7 +402,112 @@
             // setting up opacity back to full
             .style("opacity", "1");
 			
-				
+			
+
+		//=======================  add an annotation line ============================
+		var line1 = g.append("g")
+            //.attr("font-family", "time")
+            //.attr("font-size", 16)
+            //.attr("text-anchor", "start")
+           // .selectAll("g")
+           // .data(keys.slice())
+           // .enter()
+           // .append("g")
+            //.attr("transform", function(d, i) {
+            //    return "translate(0," + i * 20 + ")";
+            //})
+			.attr("transform", "translate(0, 0)")
+            // setting up opacity to 0 before transition
+            .style("opacity", "0");
+
+		line1.append("line")          // attach a line
+			//.attr("id", "arrow")
+			.style("stroke", "black")  // colour the line
+			.attr("x1", 910)     // x position of the first end of the line
+			.attr("y1", 100)      // y position of the first end of the line
+			.attr("x2", 910)     // x position of the second end of the line
+			.attr("y2", 295) 
+			.attr("marker-end", "url(#arrow)");
+
+        line1.transition()
+            .duration(500)
+            .delay(1300)
+            // setting up opacity back to full
+            .style("opacity", "1");		
+			
+
+		// ===========  Add a annotation for Green Tea ===========================
+        var annotation1 = g.append("g")
+            .attr("font-family", "time")
+            .attr("font-size", 16)
+            .attr("text-anchor", "start")
+            .selectAll("g")
+            .data(keys.slice())
+            .enter()
+            .append("g")
+            //.attr("transform", function(d, i) {
+            //    return "translate(0," + i * 20 + ")";
+            //})
+			.attr("transform", "translate(0, 0)")
+            // setting up opacity to 0 before transition
+            .style("opacity", "0");
+        
+		// setting up rectangles for the legend    
+        annotation1.append("a")
+			.append("rect")
+            .attr("x", 880) //width - 265)
+            .attr("y", 100)
+            .attr("width", 210)
+            .attr("height", 50)
+			.style("stroke", "black")
+            .attr("fill", "lightyellow");
+		
+		annotation1.append("a")
+			.append("rect")
+            .attr("x", 870) //width - 265)
+            .attr("y", 295)
+            .attr("width", 80)
+            .attr("height",30)
+			.style("stroke", "red")
+            .attr("fill", "none");
+			
+        // setting up leend text   
+        annotation1.append("a")
+			.append("text")
+            .attr("x", 885) //width - 265)
+            .attr("y", 110)
+            .attr("dy", "0.32em")
+			.attr("font-weight", "bold")
+			.style('fill', 'black')
+            .text( "Green Tea profit is too small ! ");		
+
+		annotation1.append("a")
+			.append("text")
+			.attr("font-size", 14)
+			.attr("font-weight", "bold")
+            .attr("x", 885) //width - 265)
+            .attr("y", 125)
+            .attr("dy", "0.32em")
+			.style('fill', 'blue')
+            .text( "          2010 Profit : -0.6");		
+
+		annotation1.append("a")
+			.append("text")
+			.attr("font-size", 14)
+			.attr("font-weight", "bold")
+            .attr("x", 885) //width - 265)
+            .attr("y", 140)
+            .attr("dy", "0.32em")
+			.style('fill', 'blue')
+            .text( "          2011 Profit :-1");	
+			
+		// setting transition delay and duration for all individual elements for the legend    
+        annotation1.transition()
+            .duration(500)
+            .delay(1300)
+            // setting up opacity back to full
+            .style("opacity", "1");	 
+	
     });
 
 
