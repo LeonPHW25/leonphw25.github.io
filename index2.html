@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Coffee Chain Products' Average Nationwide Profit</title>
+    <title>Coffee Chain Products' Average Nationalwide Profit</title>
   	<script src="https://d3js.org/d3.v4.min.js"></script>
 <style>
   h3 {
@@ -359,7 +359,39 @@
             // setting up opacity back to full
             .style("opacity", "1");
 		*/
-
+		var holder3 = g.append("g")
+            .attr("font-family", "time")
+            .attr("font-size", 16)
+            .attr("text-anchor", "start")
+            .selectAll("g")
+            .data(keys.slice())
+            .enter()
+            .append("g")
+            //.attr("transform", function(d, i) {
+            //    return "translate(0," + i * 20 + ")";
+            //})
+			.attr("transform", "translate(0, 0)")
+            // setting up opacity to 0 before transition
+            .style("opacity", "0");
+			
+		        // setting up leend text   
+        holder3.append("a")
+			//.attr("xlink:href", "https://leonphw25.github.io/index_bigframe02.html")
+			.append("text")
+            .attr("x", 5) //width - 265)
+            .attr("y", 40)
+            .attr("dy", "0.32em")
+			.attr("font-weight", "bold")
+			.style('fill', 'green')
+            .text( "(Move cursor to each bar for more details ! ) ");		
+			
+		// setting transition delay and duration for all individual elements for the legend    
+        holder3.transition()
+            .duration(500)
+            .delay(1300)
+            // setting up opacity back to full
+            .style("opacity", "1");		
+			
 		//=======================  add an annotation line ============================
 		var line1 = g.append("g")
             //.attr("font-family", "time")
